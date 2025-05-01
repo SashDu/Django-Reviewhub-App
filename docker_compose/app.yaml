@@ -17,7 +17,7 @@ services:
   postgres:
     image: postgres:13
     ports:
-      - "5434:5432"  # Измененный порт для решения конфликта
+      - "5434:5432"  
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
