@@ -30,7 +30,7 @@ SECRET_KEY = env.str("DJANGO_KEY", default="default-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # first
     "core.apps.products.apps.ProductsConfig",
+    "core.apps.users.apps.UsersConfig",
 ]
 
 MIDDLEWARE = [
