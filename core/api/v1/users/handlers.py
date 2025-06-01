@@ -10,8 +10,8 @@ from core.api.v1.users.schemas import (
     TokenOutSchema,
 )
 from core.apps.common.exceptions import ServiceException
-from core.apps.products.containers import get_container
 from core.apps.users.services.auth import BaseAuthSevice
+from core.project.containers import get_container
 
 
 router = Router(tags=["Users"])
@@ -23,7 +23,7 @@ def auth_handler(
     schema: AuthInSchema,
 ) -> ApiResponse[AuthOutSchema]:
     container = get_container()
-    service = container.resolve(BaseAuthSevice)
+    service: BaseAuthSevice = container.resolve(BaseAuthSevice)
 
     service.authorize(schema.phone)
     return ApiResponse(
